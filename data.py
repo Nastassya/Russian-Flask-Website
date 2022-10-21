@@ -29,17 +29,17 @@ nouns = {
 }
 
 verbs = {
-  'знать': 'to know',
-  'жить': 'to live',
-  #'любитъ': 'to love/like',
-  'работать': 'to work',
-  'говорить': 'to speak',
-  'думать': 'to think',
-  'понимать': 'to understand',
+  #'знать': 'to know',
+  #'жить': 'to live',
+  'любить': 'to love/like',
+  #'работать': 'to work',
+  #'говорить': 'to speak',
+  #'думать': 'to think',
+  #'понимать': 'to understand',
   #'мочь': 'to be able to',
-  'хотеть': 'to want',
-  'делать': 'to do',
+  #'хотеть': 'to want',
+  #'делать': 'to do',
   #'брать': 'to take',
-  'давать': 'to give',
-  'помнить': 'to remember'
+  #'давать': 'to give',
+  #'помнить': 'to remember'
 }

@@ -15,6 +15,8 @@ def present_tense(verb, subject):
       answer = verb[:-2] + 'ют'
   
   elif verb[-3:] == 'ить':
+
+    #case for жить
     if len(verb) == 4:
       if subject == '1s':
         answer = verb[:-2] + 'ву'
@@ -28,6 +30,23 @@ def present_tense(verb, subject):
         answer = verb[:-2] + 'вёте'
       elif subject == '3p':
         answer = verb[:-2] + 'вут'
+
+    #case for любить
+    elif verb[-4] == 'б':
+      stem = verb[:-3]
+
+      if subject == '1s':
+        answer = stem + 'лю'
+      elif subject == '2s':
+        answer = stem + 'ишь'
+      elif subject == '3s':
+        answer = stem + 'ит'
+      elif subject == '1p':
+        answer = stem + 'им'
+      elif subject == '2p':
+        answer = stem + 'ите'
+      elif subject == '3p':
+        answer = stem + 'ят'
 
     else:
       if subject == '1s':
