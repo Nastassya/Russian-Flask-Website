@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+  {% block content %}
+    <h1>{{ page_title }}</h1>
+    <h2>Write the {{ subject }} of {{ verb }}</h2>
+    <form action="/4" method="POST">
+    <input type="hidden" name="case" value="{{ case }}" />
+    <input type="hidden" name="subject" value="{{ subject }}" />
+    <input type="hidden" name="verb" value="{{ verb }}" />
+    <input type="hidden" name="route" value="{{ route }}" />
+    <input type="hidden" name="page_title" value="{{ page_title }}" />
+    <input type="text" name="answer"></input>
+      <button>Check!</button>
+    </form>
+  {% endblock %}
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+  <h1>Genitive</h1>
+  <h2>Write the genitive of the word below</h2>
+  <h3>{{ word }}</h3>
+  <input></input>
+
+<a href="/">Home</a>
+</html>
+╌>

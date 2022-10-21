@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+  {% block content %}
+    <h1>{{ page_title }}</h1>
+    <h2>Write the {{ case }} of {{ russian }}</h2>
+    <h3 style="color:green;">Correct!</h3>
+    <p>The {{ case }} of {{ russian }} is {{ correct_ans }}</p>
+
+    <form action='{{ route }}'>
+      <input type="submit" value="Practice Again" />
+    </form>
+  {% endblock %}
