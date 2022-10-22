@@ -2,26 +2,44 @@
   {% block content %}
     <h1>{{ page_title }}</h1>
     <h2>Write the {{ case }} of {{ russian }}</h2>
-    <form action="/3" method="POST">
-    <input type="hidden" name="case" value="{{ case }}" />
-    <input type="hidden" name="english" value="{{ english }}" />
-    <input type="hidden" name="russian" value="{{ russian }}" />
-    <input type="hidden" name="gender" value="{{ gender }}" />
-    <input type="hidden" name="route" value="{{ route }}" />
-    <input type="hidden" name="page_title" value="{{ page_title }}" />
+
+    <div id = 'answer_form' style='display:block'>
+      <form action="#" onsubmit="myFunction();return false">
+        <input type="text" name="answer" id="userInput"></input>
+        <input type="submit"/>
+      </form>
+    </div>
+
+<!---
+    <form action="" method="POST">
     <input type="text" name="answer"></input>
-      <button>Check!</button>
+      <button onclick="myFunction()">Check!</button>
     </form>
+--->
+
+    <div id="myDIV" style="display:none">
+      <p id="output"></p>
+    </div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  var y = document.getElementById('answer_form')
+  var input = document.getElementById('userInput').value;
+
+  var js_correct_ans = '{{ correct_ans }}'
+  var js_case = '{{ case }}'
+  var js_russian = '{{ russian }}'
+  
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    y.style.display = "none"
+    if (input === js_correct_ans) {
+      document.getElementById('output').innerHTML = "Correct! The " + js_case + " of " + js_russian + " is " + js_correct_ans;
+    }
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
   {% endblock %}
-
-<!--
-<!DOCTYPE html>
-<html lang="en">
-  <h1>Genitive</h1>
-  <h2>Write the genitive of the word below</h2>
-  <h3>{{ word }}</h3>
-  <input></input>
-
-<a href="/">Home</a>
-</html>
-╌>
