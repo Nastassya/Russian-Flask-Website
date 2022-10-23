@@ -13,8 +13,8 @@
     <div id="correct" style="display:none">
       <h3 style='color:green'>Correct!</h3>
       <p id="output"></p>
-      <form action='{{ route }}'>
-        <input type='hidden' name='return' value='return'/>
+      <form action='{{ route }}' method='POST'>
+        <input type='hidden' name='case' value='{{ case }}'/>
         <input type="submit" value="Practice Again" />
       </form>
     </div>
@@ -22,8 +22,8 @@
     <div id="incorrect" style="display:none">
       <h3 style='color:red'>Incorrect</h3>
       <p id="output_2"></p>
-      <form action='{{ route }}'>
-        <input type='hidden' name='return' value='return'/>
+      <form action='{{ route }}' method='POST'>
+        <input type='hidden' name='case' value='{{ case }}'/>
         <input type="submit" value="Practice Again" />
       </form>
     </div>
