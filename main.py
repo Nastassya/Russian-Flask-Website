@@ -43,8 +43,18 @@ def genitive():
   case = "genitive"
   page_title = string.capwords(case)
   english, russian, gender = pick_noun()
+  correct_ans = nom_to_gen(russian, gender)
+  route = '/2'
+  return render_template('noun_case.html', english = english, russian = russian, gender = gender, case = case, route = route, page_title = page_title, correct_ans = correct_ans)
+
+'''
+def genitive():
+  case = "genitive"
+  page_title = string.capwords(case)
+  english, russian, gender = pick_noun()
   route = '/2'
   return render_template('noun_case.html', english = english, russian = russian, gender = gender, case = case, route = route, page_title = page_title)
+'''
 
 @app.route('/2.1')
 def gen_plural():

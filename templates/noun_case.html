@@ -2,26 +2,52 @@
   {% block content %}
     <h1>{{ page_title }}</h1>
     <h2>Write the {{ case }} of {{ russian }}</h2>
-    <form action="/3" method="POST">
-    <input type="hidden" name="case" value="{{ case }}" />
-    <input type="hidden" name="english" value="{{ english }}" />
-    <input type="hidden" name="russian" value="{{ russian }}" />
-    <input type="hidden" name="gender" value="{{ gender }}" />
-    <input type="hidden" name="route" value="{{ route }}" />
-    <input type="hidden" name="page_title" value="{{ page_title }}" />
-    <input type="text" name="answer"></input>
-      <button>Check!</button>
-    </form>
+
+    <div id = 'answer_form' style='display:block'>
+      <form action="#" onsubmit="myFunction();return false">
+        <input type="text" name="answer" id="userInput"></input>
+        <input type="submit"/>
+      </form>
+    </div>
+
+    <div id="correct" style="display:none">
+      <h3 style='color:green'>Correct!</h3>
+      <p id="output"></p>
+      <form action='{{ route }}'>
+        <input type="submit" value="Practice Again" />
+      </form>
+    </div>
+
+    <div id="incorrect" style="display:none">
+      <h3 style='color:red'>Incorrect</h3>
+      <p id="output_2"></p>
+      <form action='{{ route }}'>
+        <input type="submit" value="Practice Again" />
+      </form>
+    </div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("correct");
+  var z = document.getElementById('incorrect')
+  var y = document.getElementById('answer_form');
+  var input = document.getElementById('userInput').value;
+
+  var js_correct_ans = '{{ correct_ans }}';
+  var js_case = '{{ case }}';
+  var js_russian = '{{ russian }}';
+
+  y.style.display = "none";
+
+  if (input === js_correct_ans) {
+    x.style.display = "block";
+    document.getElementById('output').innerHTML = "The " + js_case + " is " + js_correct_ans;
+  }
+
+  else {
+    z.style.display = "block";
+    document.getElementById('output_2').innerHTML = "The " + js_case + " is " + js_correct_ans;
+  }
+}
+</script>
   {% endblock %}
-
-<!--
-<!DOCTYPE html>
-<html lang="en">
-  <h1>Genitive</h1>
-  <h2>Write the genitive of the word below</h2>
-  <h3>{{ word }}</h3>
-  <input></input>
-
-<a href="/">Home</a>
-</html>
-╌>
