@@ -38,7 +38,25 @@ def home():
   
   return render_template('home.html',)
 
-@app.route('/2')
+@app.route('/2', methods=['POST'])
+def to_practice_page():
+  data = request.form
+  case = data['case']
+  page_title = string.capwords(case)
+  english, russian, gender = pick_noun()
+  route = '/2'
+
+  if case == 'genitive':
+    correct_ans = nom_to_gen(russian, gender)
+  elif case =='genitive plural':
+    correct_ans = nom_gen_plural(russian, gender)
+  else:
+    correct_ans = ''
+    
+  return render_template('noun_case.html', english = english, russian = russian, gender = gender, case = case, route = route, page_title = page_title, correct_ans = correct_ans)
+
+
+'''
 def genitive():
   case = "genitive"
   page_title = string.capwords(case)
@@ -47,7 +65,6 @@ def genitive():
   route = '/2'
   return render_template('noun_case.html', english = english, russian = russian, gender = gender, case = case, route = route, page_title = page_title, correct_ans = correct_ans)
 
-'''
 def genitive():
   case = "genitive"
   page_title = string.capwords(case)

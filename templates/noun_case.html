@@ -14,6 +14,7 @@
       <h3 style='color:green'>Correct!</h3>
       <p id="output"></p>
       <form action='{{ route }}'>
+        <input type='hidden' name='return' value='return'/>
         <input type="submit" value="Practice Again" />
       </form>
     </div>
@@ -22,6 +23,7 @@
       <h3 style='color:red'>Incorrect</h3>
       <p id="output_2"></p>
       <form action='{{ route }}'>
+        <input type='hidden' name='return' value='return'/>
         <input type="submit" value="Practice Again" />
       </form>
     </div>
