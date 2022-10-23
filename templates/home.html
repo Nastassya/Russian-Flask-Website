@@ -15,7 +15,10 @@
   <tr style='text-align:left;'>
     <td style='vertical-align: top;'>
       <ul>
-        <li><a href="/verb_conj">Present Tense</a></li>
+        <li><form action='/2' method="POST">
+            <input type='hidden' name='case' value='present'/>
+            <input type='submit' value='Present Tense'/>
+          </form>
         <li>Past</li>
         <li>Future</li>
       </ul>
@@ -23,16 +26,17 @@
     <td>
       <ul>
         <li>Nominative - (plural)</li>
-        <li>Genitive - <a href="/2">(singular)</a> <a href="/2.1">(plural)</a></li>
+        <li><span>Genitive - 
           <form action='/2' method="POST">
             <input type='hidden' name='case' value='genitive'/>
-            <input type='submit' value='Genitive'/>
+            <input type='submit' value='Singular'/>
           </form>
         
           <form action='/2' method="POST">
             <input type='hidden' name='case' value='genitive plural'/>
-            <input type='submit' value='Genitive Plural'/>
+            <input type='submit' value='Plural'/>
           </form>
+          </span>
         <li>Accusative</li>
         <li>Dative</li>
         <li>Prepositional</li>
