@@ -10,35 +10,43 @@
       </form>
     </div>
 
-<!---
-    <form action="" method="POST">
-    <input type="text" name="answer"></input>
-      <button onclick="myFunction()">Check!</button>
-    </form>
---->
-
-    <div id="myDIV" style="display:none">
+    <div id="correct" style="display:none">
+      <h3 style='color:green'>Correct!</h3>
       <p id="output"></p>
+      <form action='{{ route }}'>
+        <input type="submit" value="Practice Again" />
+      </form>
+    </div>
+
+    <div id="incorrect" style="display:none">
+      <h3 style='color:red'>Incorrect</h3>
+      <p id="output_2"></p>
+      <form action='{{ route }}'>
+        <input type="submit" value="Practice Again" />
+      </form>
     </div>
 
 <script>
 function myFunction() {
-  var x = document.getElementById("myDIV");
-  var y = document.getElementById('answer_form')
+  var x = document.getElementById("correct");
+  var z = document.getElementById('incorrect')
+  var y = document.getElementById('answer_form');
   var input = document.getElementById('userInput').value;
 
-  var js_correct_ans = '{{ correct_ans }}'
-  var js_case = '{{ case }}'
-  var js_russian = '{{ russian }}'
-  
-  if (x.style.display === "none") {
+  var js_correct_ans = '{{ correct_ans }}';
+  var js_case = '{{ case }}';
+  var js_russian = '{{ russian }}';
+
+  y.style.display = "none";
+
+  if (input === js_correct_ans) {
     x.style.display = "block";
-    y.style.display = "none"
-    if (input === js_correct_ans) {
-      document.getElementById('output').innerHTML = "Correct! The " + js_case + " of " + js_russian + " is " + js_correct_ans;
-    }
-  } else {
-    x.style.display = "none";
+    document.getElementById('output').innerHTML = "The " + js_case + " is " + js_correct_ans;
+  }
+
+  else {
+    z.style.display = "block";
+    document.getElementById('output_2').innerHTML = "The " + js_case + " is " + js_correct_ans;
   }
 }
 </script>
