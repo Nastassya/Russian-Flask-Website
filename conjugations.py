@@ -1,18 +1,34 @@
+endings = {
+  'ать': {
+    '1s': 'ю',
+    '2s': 'ешь',
+    '3s': 'ет',
+    '1p': 'ем',
+    '2p': 'ете',
+    '3p': 'ют'
+  },
+  'ить': {
+    '1s': 'ю',
+    '2s': 'ишь',
+    '3s': 'ит',
+    '1p': 'им',
+    '2p': 'ите',
+    '3p': 'ят'
+  }
+  'еть': {
+    '1s': 'ю',
+    '2s': 'шь',
+    '3s': 'ет',
+    '1p': 'ем',
+    '2p': 'ете',
+    '3p': 'ют'
+  }
+}
+
 def present_tense(verb, subject):
 
   if verb[-3:] == 'ать':
-    if subject == '1s':
-      answer = verb[:-2] + 'ю'
-    elif subject == '2s':
-      answer = verb[:-2] + 'ешь'
-    elif subject == '3s':
-      answer = verb[:-2] + 'ет'
-    elif subject == '1p':
-      answer = verb[:-2] + 'ем'
-    elif subject == '2p':
-      answer = verb[:-2] + 'ете'
-    elif subject == '3p':
-      answer = verb[:-2] + 'ют'
+    answer = verb[:-2] + endings['ать'][subject]
   
   elif verb[-3:] == 'ить':
 
@@ -33,34 +49,13 @@ def present_tense(verb, subject):
 
     #case for любить
     elif verb[-4] == 'б':
-      stem = verb[:-3]
-
       if subject == '1s':
-        answer = stem + 'лю'
-      elif subject == '2s':
-        answer = stem + 'ишь'
-      elif subject == '3s':
-        answer = stem + 'ит'
-      elif subject == '1p':
-        answer = stem + 'им'
-      elif subject == '2p':
-        answer = stem + 'ите'
-      elif subject == '3p':
-        answer = stem + 'ят'
+        answer = verb[:-3] + 'лю'
+      else:
+        answer = verb[:-3] + endings['ить'][subject]
 
     else:
-      if subject == '1s':
-        answer = verb[:-3] + 'ю'
-      elif subject == '2s':
-        answer = verb[:-2] + 'шь'
-      elif subject == '3s':
-        answer = verb[:-2] + 'ит'
-      elif subject == '1p':
-        answer = verb[:-2] + 'м'
-      elif subject == '2p':
-        answer = verb[:-3] + 'ите'
-      elif subject == '3p':
-        answer = verb[:-3] + 'ят'
+      answer = verb[:-3] + endings['ить'][subject]
 
   elif verb[-3:] == 'еть':
 
@@ -81,19 +76,7 @@ def present_tense(verb, subject):
         answer = stem + 'тят'
 
     else:
-      stem = verb[:-2]
-      if subject == '1s':
-        answer = verb[:-3] + 'ю'
-      elif subject == '2s':
-        answer = verb[:-2] + 'шь'
-      elif subject == '3s':
-        answer = verb[:-2] + 'ет'
-      elif subject == '1p':
-        answer = verb[:-2] + 'ем'
-      elif subject == '2p':
-        answer = verb[:-3] + 'ете'
-      elif subject == '3p':
-        answer = verb[:-3] + 'ют'
+      answer = verb[:-2] + endings['еть'][subject]
     
   else:
     answer = 'Not covered'
