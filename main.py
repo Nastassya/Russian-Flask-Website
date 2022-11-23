@@ -38,85 +38,35 @@ def home():
   
   return render_template('home.html',)
 
-@app.route('/2')
-def genitive():
-  case = "genitive"
-  page_title = string.capwords(case)
-  english, russian, gender = pick_noun()
-  correct_ans = nom_to_gen(russian, gender)
-  route = '/2'
-  return render_template('noun_case.html', english = english, russian = russian, gender = gender, case = case, route = route, page_title = page_title, correct_ans = correct_ans)
-
-'''
-def genitive():
-  case = "genitive"
-  page_title = string.capwords(case)
-  english, russian, gender = pick_noun()
-  route = '/2'
-  return render_template('noun_case.html', english = english, russian = russian, gender = gender, case = case, route = route, page_title = page_title)
-'''
-
-@app.route('/2.1')
-def gen_plural():
-  case = "genitive plural"
-  page_title = string.capwords(case)
-  english, russian, gender = pick_noun()
-  route = '/2.1'
-  return render_template('noun_case.html', english = english, russian = russian, gender = gender, case = case, route = route, page_title = page_title)
-
-@app.route('/3', methods=['POST'])
-def check_answer():
-  # https://pythonbasics.org/flask-http-methods/
+@app.route('/2', methods=['POST'])
+def to_practice_page():
   data = request.form
-  russian = data['russian']
-  gender = data['gender']
   case = data['case']
-  user_ans = data['answer'].lower()
-  route = data['route']
-  page_title = data['page_title']
+  page_title = string.capwords(case)
+  route = '/2'
 
-  if case == 'genitive':
-    correct_ans = nom_to_gen(russian, gender)
-  elif case == 'genitive plural':
-    correct_ans = nom_gen_plural(russian, gender)
+  if case == 'present':
+    verb, subject = pick_verb()
+    correct_ans = present_tense(verb, subject)
+    subject = subjects[subject]
+    english = ''
+    russian = verb
+    gender = ''
+    
 
-  if user_ans == correct_ans:
-    print(correct_ans)
-    print(user_ans)
-    return render_template('correct_answer.html', russian = russian, case = case, user_ans = user_ans, correct_ans = correct_ans, route = route, page_title = page_title)
   else:
-    return render_template('noun_case_incorrect.html', russian = russian, case = case, user_ans = user_ans, correct_ans = correct_ans, route = route, page_title = page_title)
+    english, russian, gender = pick_noun()
 
-   #print("you answered {0}".format(data['answer']))
+    if case == 'genitive':
+      correct_ans = nom_to_gen(russian, gender)
+    elif case =='genitive plural':
+      correct_ans = nom_gen_plural(russian, gender)
+    else:
+      correct_ans = ''
 
-   # send a JSON response to the client
-   #return jsonify(response="you answered {0}".format(data['answer']))
-
-@app.route('/verb_conj')
-def verb_conj():
-  verb, case = pick_verb()
-  page_title = string.capwords(subjects[case])
-  subject = subjects[case]
-  route = '/verb_conj'
-  return render_template('verb_conj.html', verb = verb, case = case, subject = subject, route = route, page_title = page_title)
-
-@app.route('/4', methods=['POST'])
-def check_verb():
-  # https://pythonbasics.org/flask-http-methods/
-  data = request.form
-  verb = data['verb']
-  case = data['case']
-  user_ans = data['answer'].lower()
-  route = data['route']
-  page_title = data['page_title']
-  subject = data['subject']
-
-  answer = present_tense(verb, case)
-
-  if user_ans == answer:
-    return render_template('correct_answer.html', russian = verb, case = subject, user_ans = user_ans, correct_ans = answer, route = route, page_title = page_title)
-  else:
-    return render_template('noun_case_incorrect.html', russian = verb, case = subject, user_ans = user_ans, correct_ans = answer, route = route, page_title = page_title)
+    subject = case
+      
+  return render_template('prac_verb_or_noun.html', english = english, russian = russian, gender = gender, case = case, subject = subject, route = route, page_title = page_title, correct_ans = correct_ans)
   
 if __name__ == "__main__":  # Makes sure this is the main process
 	app.run( # Starts the site

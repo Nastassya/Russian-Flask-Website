@@ -1,7 +1,7 @@
 {% extends "base.html" %}
   {% block content %}
     <h1>{{ page_title }}</h1>
-    <h2>Write the {{ case }} of {{ russian }}</h2>
+    <h2>Write the {{ subject }} of {{ russian }}</h2>
 
     <div id = 'answer_form' style='display:block'>
       <form action="#" onsubmit="myFunction();return false">
@@ -13,7 +13,8 @@
     <div id="correct" style="display:none">
       <h3 style='color:green'>Correct!</h3>
       <p id="output"></p>
-      <form action='{{ route }}'>
+      <form action='{{ route }}' method='POST'>
+        <input type='hidden' name='case' value='{{ case }}'/>
         <input type="submit" value="Practice Again" />
       </form>
     </div>
@@ -21,7 +22,8 @@
     <div id="incorrect" style="display:none">
       <h3 style='color:red'>Incorrect</h3>
       <p id="output_2"></p>
-      <form action='{{ route }}'>
+      <form action='{{ route }}' method='POST'>
+        <input type='hidden' name='case' value='{{ case }}'/>
         <input type="submit" value="Practice Again" />
       </form>
     </div>
