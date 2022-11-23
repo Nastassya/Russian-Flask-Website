@@ -58,9 +58,9 @@ def to_practice_page():
     english, russian, gender = pick_noun()
 
     if case == 'genitive':
-      correct_ans = nom_to_gen(russian, gender)
+      correct_ans = genitive_sing(russian, gender)
     elif case =='genitive plural':
-      correct_ans = nom_gen_plural(russian, gender)
+      correct_ans = genitive_plural(russian, gender)
     else:
       correct_ans = ''
 
