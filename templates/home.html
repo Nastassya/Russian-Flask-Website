@@ -25,7 +25,12 @@
     </td>
     <td>
       <ul>
-        <li>Nominative - (plural)</li>
+        <li>
+          <form action='/2' method="POST">
+            <input type='hidden' name='case' value='nominative plural'/>
+            <input type='submit' value='Nominative (plural)'/>
+          </form>  
+        </li>
         <li><span>Genitive - 
           <form action='/2' method="POST">
             <input type='hidden' name='case' value='genitive'/>

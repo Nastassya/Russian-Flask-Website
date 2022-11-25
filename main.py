@@ -2,6 +2,7 @@ import random, string
 
 from flask import Flask, render_template, request, jsonify
 from data import *
+from nominative import *
 from genitive import *
 from conjugations import *
 
@@ -61,6 +62,8 @@ def to_practice_page():
       correct_ans = genitive_sing(russian, gender)
     elif case =='genitive plural':
       correct_ans = genitive_plural(russian, gender)
+    elif case == 'nominative plural':
+      correct_ans = nom_plural(russian, gender)
     else:
       correct_ans = ''
 

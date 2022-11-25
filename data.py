@@ -2,13 +2,24 @@ consonants = ["б", "в", "г", "д", "ж", "з", "к", "л", "м", "н", "п", 
 
 subjects = {'1s': '1st person singular', '2s': '2nd person singular', '3s': '3rd person singular', '1p': '1st person plural', '2p': '2nd person plural', '3p': '3rd person plural'}
 
+def spell_except(word):
+  if word[-2] in ['г', 'к', 'х', 'ж', 'ч', 'ш', 'щ']:
+    if word[-1] == 'ы':
+      word = word[:-1] + 'и'
+    else:
+      word = word
+  
+  return word
+
 nouns = {
   "table": {"russian": "стол", "gender": "m"},
   "plate": {"russian": "тарелка", "gender": "f"},
   #"towel": {"russian": "полотенце", "gender": "n"},
   #"child": {"russian": "ребёнок", "gender": "m"},
   "woman": {"russian": "женщина", "gender": "f"},
-  'person': {'russian': 'человек', 'gender': 'm'},
+
+  #k generates spelling exception for nom plural
+  #'person': {'russian': 'человек', 'gender': 'm'},
   
   #need to find way of defining genitive plural
   #'friend': {'russian': 'друг', 'gender': 'm'},
