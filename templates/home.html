@@ -23,9 +23,15 @@
         <li>Future</li>
       </ul>
     </td>
+    
     <td>
       <ul>
-        <li>Nominative - (plural)</li>
+        <li>
+          <form action='/2' method="POST">
+            <input type='hidden' name='case' value='nominative plural'/>
+            <input type='submit' value='Nominative (plural)'/>
+          </form>  
+        </li>
         <li><span>Genitive - 
           <form action='/2' method="POST">
             <input type='hidden' name='case' value='genitive'/>
@@ -37,9 +43,40 @@
             <input type='submit' value='Plural'/>
           </form>
           </span>
-        <li>Accusative</li>
-        <li>Dative</li>
-        <li>Prepositional</li>
+        <li>
+          <form action='/2' method="POST">
+            <input type='hidden' name='case' value='accusative singular'/>
+            <input type='submit' value='Accusative Singular'/>
+          </form>
+
+          <form action='/2' method="POST">
+            <input type='hidden' name='case' value='accusative plural'/>
+            <input type='submit' value='Accusative Plural'/>
+          </form>
+          
+        </li>
+        <li>
+          <form action='/2' method="POST">
+            <input type='hidden' name='case' value='dative singular'/>
+            <input type='submit' value='Dative Singular'/>
+          </form>
+
+            <form action='/2' method="POST">
+            <input type='hidden' name='case' value='dative plural'/>
+            <input type='submit' value='Dative Plural'/>
+          </form>
+        </li>
+        <li>
+          <form action='/2' method="POST">
+            <input type='hidden' name='case' value='prepositional singular'/>
+            <input type='submit' value='Prepositional Singular'/>
+          </form>
+
+          <form action='/2' method="POST">
+            <input type='hidden' name='case' value='prepositional plural'/>
+            <input type='submit' value='Prepositional Plural'/>
+          </form>
+        </li>
         <li>Instrumental</li>
       </ul>
     </td>

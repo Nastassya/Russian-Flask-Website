@@ -2,7 +2,13 @@ import random, string
 
 from flask import Flask, render_template, request, jsonify
 from data import *
+
+from accusative import *
+from dative import *
 from genitive import *
+from nominative import *
+from prepositional import *
+
 from conjugations import *
 
 
@@ -58,9 +64,25 @@ def to_practice_page():
     english, russian, gender = pick_noun()
 
     if case == 'genitive':
-      correct_ans = nom_to_gen(russian, gender)
+      correct_ans = genitive_sing(russian, gender)
     elif case =='genitive plural':
-      correct_ans = nom_gen_plural(russian, gender)
+      correct_ans = genitive_plural(russian, gender)
+    elif case == 'nominative plural':
+      correct_ans = nom_plural(russian, gender)
+    elif case == 'accusative singular':
+      animate = nouns[english]['animate']
+      correct_ans = accusative_sing(russian, gender, animate)
+    elif case == 'accusative plural':
+      animate = nouns[english]['animate']
+      correct_ans = accusative_plural(russian, gender, animate)
+    elif case == 'dative singular':
+      correct_ans = dative_sing(russian, gender)
+    elif case == 'dative plural':
+      correct_ans = dative_plural(russian)
+    elif case == 'prepositional singular':
+      correct_ans = prepositional_sing(russian, gender)
+    elif case == 'prepositional plural':
+      correct_ans = prepositional_plural(russian)
     else:
       correct_ans = ''
 
@@ -73,4 +95,3 @@ if __name__ == "__main__":  # Makes sure this is the main process
 		host='0.0.0.0',  # EStablishes the host, required for repl to detect the site
 		port=random.randint(2000, 9000)  # Randomly select the port the machine hosts on.
 	)
-  

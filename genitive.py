@@ -2,7 +2,7 @@ import random
 from main import *
 from data import *
 
-def nom_to_gen(russian, gender):
+def genitive_sing(russian, gender):
 
 #http://masterrussian.com/aa061500a.shtml
   
@@ -34,7 +34,7 @@ def nom_to_gen(russian, gender):
 
   return answer
 
-def nom_gen_plural(russian, gender):
+def genitive_plural(russian, gender):
 
   if gender == "m":
     if russian[-1] in consonants:
