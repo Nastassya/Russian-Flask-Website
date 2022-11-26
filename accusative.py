@@ -27,7 +27,7 @@ def accusative_sing(noun, gender, animate):
 
 def accusative_plural(noun, gender, animate):
   if animate == 'n':
-    answer = nom_plural(noun)
+    answer = nom_plural(noun, gender)
   else:
     answer = genitive_plural(noun, gender)
 
