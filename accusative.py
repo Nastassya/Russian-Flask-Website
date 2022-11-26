@@ -3,7 +3,7 @@ from nominative import *
 from genitive import *
 
 def accusative_sing(noun, gender, animate):
-  if noun['gender'] == 'f':
+  if gender == 'f':
     if noun[-1] == 'а':
       answer = noun[:-1] + 'у'
     elif noun[-1] == 'я':
@@ -11,8 +11,8 @@ def accusative_sing(noun, gender, animate):
     else:
       answer = noun
   
-  elif noun['gender'] == 'm':
-    if noun['animate'] == 'n':
+  elif gender == 'm':
+    if animate == 'n':
       answer = noun
     else:
       if noun[-1] in consonants or noun[-1] == 'ь':

@@ -12,31 +12,29 @@ def spell_except(word):
   return word
 
 nouns = {
-  "table": {"russian": "стол", "gender": "m"},
-  "plate": {"russian": "тарелка", "gender": "f"},
+  "table": {"russian": "стол", "gender": "m", 'animate': 'n'},
+  "plate": {"russian": "тарелка", "gender": "f", 'animate': 'n'},
   #"towel": {"russian": "полотенце", "gender": "n"},
   #"child": {"russian": "ребёнок", "gender": "m"},
-  "woman": {"russian": "женщина", "gender": "f"},
-
-  #k generates spelling exception for nom plural
-  #'person': {'russian': 'человек', 'gender': 'm'},
+  "woman": {"russian": "женщина", "gender": "f", 'animate': 'y'},
+  'person': {'russian': 'человек', 'gender': 'm', 'animate': 'y'},
   
   #need to find way of defining genitive plural
   #'friend': {'russian': 'друг', 'gender': 'm'},
-  
-  'man': {'russian': 'мужчина', 'gender': 'm'},
-  'boy': {'russian': 'мальчик' , 'gender': 'm'},
-  'girl': {'russian': 'девочка', 'gender': 'f'},
-  'young woman; girl; girlfriend': {'russian': 'девушка', 'gender': 'f'},
+
+  'man': {'russian': 'мужчина', 'gender': 'm', 'animate': 'y'},
+  'boy': {'russian': 'мальчик' , 'gender': 'm', 'animate': 'y'},
+  'girl': {'russian': 'девочка', 'gender': 'f', 'animate': 'y'},
+  'young woman; girl; girlfriend': {'russian': 'девушка', 'gender': 'f', 'animate': 'y'},
 
   #need to find way of defining genitive singular and plural
   #'young man; boy; boyfriend': {'russian': 'парень', 'gender': 'm'},
 
   #need to find way of defining genitive singular and plural
   #'name': {'russian': 'имя', 'gender': 'n'},
-  'surname/family name': {'russian': 'фамилия', 'gender': 'f'},
-  'boss': {'russian': 'начальник', 'gender': 'm'},
-  'visitor/guest': {'russian': 'гость', 'gender': 'm'},
+  'surname/family name': {'russian': 'фамилия', 'gender': 'f', 'animate': 'n'},
+  'boss': {'russian': 'начальник', 'gender': 'm', 'animate': 'y'},
+  'visitor/guest': {'russian': 'гость', 'gender': 'm', 'animate': 'y'},
 }
 
 verbs = {

@@ -23,6 +23,7 @@
         <li>Future</li>
       </ul>
     </td>
+    
     <td>
       <ul>
         <li>
@@ -42,7 +43,12 @@
             <input type='submit' value='Plural'/>
           </form>
           </span>
-        <li>Accusative</li>
+        <li>
+          <form action='/2' method="POST">
+            <input type='hidden' name='case' value='accusative singular'/>
+            <input type='submit' value='Accusative Singular'/>
+          </form>
+        </li>
         <li>Dative</li>
         <li>Prepositional</li>
         <li>Instrumental</li>
