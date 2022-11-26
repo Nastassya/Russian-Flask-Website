@@ -1,13 +1,15 @@
 from data import *
 
 def prepositional_sing(noun, gender):
-  if noun['gender'] == 'm':
+  if gender == 'm':
     answer = noun + 'е'
-  elif noun['gender'] == 'f':
+  elif gender == 'f':
     if noun[-1] in ['а', 'я']:
       answer = noun[:-1] + 'е'
     elif noun[-1] == 'ь':
       answer = noun[:-1] + 'и'
+    else:
+      answer = 'unknown'
 
   else:
     if noun[-1] == 'о':
@@ -18,7 +20,9 @@ def prepositional_sing(noun, gender):
   return answer
 
 def prepositional_plural(noun):
-  if noun[-1] in consonants or noun[-1] in ['о', 'а']:
+  if noun[-1] in consonants:
+    answer = noun + 'ах'
+  elif noun[-1] in ['о', 'а']:
     answer = noun[:-1] + 'ах'
   else:
     answer = noun[:-1] + 'ях'

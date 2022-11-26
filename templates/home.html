@@ -66,7 +66,17 @@
             <input type='submit' value='Dative Plural'/>
           </form>
         </li>
-        <li>Prepositional</li>
+        <li>
+          <form action='/2' method="POST">
+            <input type='hidden' name='case' value='prepositional singular'/>
+            <input type='submit' value='Prepositional Singular'/>
+          </form>
+
+          <form action='/2' method="POST">
+            <input type='hidden' name='case' value='prepositional plural'/>
+            <input type='submit' value='Prepositional Plural'/>
+          </form>
+        </li>
         <li>Instrumental</li>
       </ul>
     </td>
