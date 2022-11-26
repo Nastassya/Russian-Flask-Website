@@ -55,7 +55,17 @@
           </form>
           
         </li>
-        <li>Dative</li>
+        <li>
+          <form action='/2' method="POST">
+            <input type='hidden' name='case' value='dative singular'/>
+            <input type='submit' value='Dative Singular'/>
+          </form>
+
+            <form action='/2' method="POST">
+            <input type='hidden' name='case' value='dative plural'/>
+            <input type='submit' value='Dative Plural'/>
+          </form>
+        </li>
         <li>Prepositional</li>
         <li>Instrumental</li>
       </ul>

@@ -78,7 +78,7 @@ def to_practice_page():
     elif case == 'dative singular':
       correct_ans = dative_sing(russian, gender)
     elif case == 'dative plural':
-      correct_ans = dative_plural(russian, gender)
+      correct_ans = dative_plural(russian)
     elif case == 'prepositional singular':
       correct_ans = prepositional_sing(russian, gender)
     elif case == 'prepositional plural':
