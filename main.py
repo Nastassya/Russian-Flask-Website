@@ -2,6 +2,7 @@ import random, string
 
 from flask import Flask, render_template, request, jsonify
 from data import *
+from sqlcode import *
 
 from accusative import *
 from dative import *
@@ -11,6 +12,8 @@ from prepositional import *
 
 from conjugations import *
 
+#Run SQL code
+sql_interact()
 
 #Function to choose noun
 def pick_noun():
