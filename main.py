@@ -25,8 +25,9 @@ def pick_noun():
 
 #Function to choose verb
 def pick_verb():
-  verb_list = list(verbs)
-  verb = random.choice(verb_list)
+  verb_list = sql_pull('verb')
+  data = random.choice(verb_list)
+  verb = data[0]
   subject_list = list(subjects)
   subject = random.choice(subject_list)
   return(verb, subject)
