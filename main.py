@@ -12,17 +12,18 @@ from prepositional import *
 
 from conjugations import *
 
-#Run SQL code
-sql_interact()
+#Run SQL file
+sql_alterdata()
 
 #Function to choose noun
 def pick_noun():
-  noun_list = list(nouns)
-  english = random.choice(noun_list)
-  russian = nouns[english]["russian"]
-  gender = nouns[english]["gender"]
-  return (english, russian, gender)
+  noun_list = sql_pull("noun")
+  data = random.choice(noun_list)
+  russian = data[0]
+  gender = data[1]
+  return (russian, gender)
 
+#Function to choose verb
 def pick_verb():
   verb_list = list(verbs)
   verb = random.choice(verb_list)
@@ -64,7 +65,8 @@ def to_practice_page():
     
 
   else:
-    english, russian, gender = pick_noun()
+    russian, gender = pick_noun()
+    english = "english"
 
     if case == 'genitive':
       correct_ans = genitive_sing(russian, gender)
