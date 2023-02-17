@@ -78,7 +78,7 @@ def genitive_plural(russian, gender):
       else:
         answer = russian[:-1] + "й"
     elif russian[-1] == "ь":
-      answer = russian[-1] + "ей"
+      answer = russian[:-1] + "ей"
 
   elif gender == "n":
     if russian[-1] == "о":

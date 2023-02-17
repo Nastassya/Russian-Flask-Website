@@ -17,9 +17,10 @@ def sql_alterdata():
   ]
   
   cur.execute('CREATE TABLE IF NOT EXISTS verbs (russian UNIQUE, english, exceptions);')
-  '''
+  
 
   cur.executemany("INSERT OR IGNORE INTO verbs (russian, english) VALUES (?, ?)", data)
+  '''
 
   con.commit()
 
@@ -34,5 +35,5 @@ def sql_pull(category):
     cursor_object = cur.execute('SELECT * FROM verbs;')
 
   objects = cursor_object.fetchall()
-
+  print(objects)
   return objects
