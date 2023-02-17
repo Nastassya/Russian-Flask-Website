@@ -13,7 +13,7 @@ from prepositional import *
 from conjugations import *
 
 #Run SQL file
-#sql_alterdata()
+sql_alterdata()
 
 #Function to choose noun
 def pick_noun():

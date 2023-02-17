@@ -4,6 +4,7 @@ def sql_alterdata():
   con = sqlite3.connect('words.db')
   cur = con.cursor()
 
+  #adds words to verbs table
   '''
   data = [
     ('знать', 'to know'),
@@ -21,6 +22,16 @@ def sql_alterdata():
 
   cur.executemany("INSERT OR IGNORE INTO verbs (russian, english) VALUES (?, ?)", data)
   '''
+
+  #adds words to nouns table
+  data = [
+    ('голова', 'f', 'n', 'head'),
+    ('рука', 'f', 'n', 'hand, arm')
+  ]
+  
+  cur.execute('CREATE TABLE IF NOT EXISTS nouns (russian UNIQUE, gender, animate, english, exceptions);')
+  
+  cur.executemany("INSERT OR IGNORE INTO nouns (russian, gender, animate, english) VALUES (?, ?, ?, ?)", data)
 
   con.commit()
 
